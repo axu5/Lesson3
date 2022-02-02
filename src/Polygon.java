@@ -64,10 +64,40 @@ public class Polygon {
    */
   public double getPerimeter() {
     double perimeter = 0;
-    for (int i = 0; i < lengthSides.length; i++) {
-      perimeter += lengthSides[i];
+    for (int i = 0; i < this.lengthSides.length; ++i) {
+      perimeter += this.lengthSides[i];
     }
     return perimeter;
+  }
+
+  /**
+   * Add a side to the polygon.
+   * 
+   * @param length the length of the new side
+   */
+  public void addSide(double length) {
+    this.numberSides = Math.min(this.numberSides + 1, 20);
+    double[] newLengthSides = new double[numberSides];
+    for (int i = 0; i < this.numberSides; ++i)
+      newLengthSides[i] = this.lengthSides[i];
+
+    newLengthSides[this.numberSides - 1] = length;
+    this.lengthSides = newLengthSides;
+  }
+
+  /**
+   * Remove a side from the polygon
+   * 
+   * @param index the index of the side you want to remove
+   */
+  public void removeSide(int idx) {
+    this.numberSides = Math.max(this.numberSides - 1, 3);
+    double[] newLengthSides = new double[this.numberSides];
+    for (int i = 0; i < this.lengthSides.length; i++)
+      if (i != idx)
+        newLengthSides[i] = this.lengthSides[i];
+
+    this.lengthSides = newLengthSides;
   }
 
   /**
@@ -77,7 +107,7 @@ public class Polygon {
    */
   public String toString() {
     String result = "Sides: ";
-    for (int i = 0; i < this.lengthSides.length; i++) {
+    for (int i = 0; i < this.numberSides; i++) {
       result += this.lengthSides[i] + " ";
     }
     result += "| Perimeter: " + this.getPerimeter();
