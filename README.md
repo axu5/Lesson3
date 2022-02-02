@@ -1,5 +1,7 @@
 ## Using arrays in Classes
 
+Interesting reference bugs that needed to be fixed! Otherwise easy sailing.
+
 ## Getting Started
 
 Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
