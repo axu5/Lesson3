@@ -30,7 +30,17 @@ public class Polygon {
    */
   Polygon(int ns, double[] ls) {
     this.numberSides = ns;
-    this.lengthSides = ls;
+
+    if (ns != ls.length) {
+      throw new IllegalArgumentException("The number of sides and the length of the sides array do not match.");
+    }
+
+    // do not point to the array, but copy the array
+    // this could lead to possible bugs otherwise
+    this.lengthSides = new double[ns];
+    for (int i = 0; i < ns; i++) {
+      this.lengthSides[i] = ls[i];
+    }
   }
 
   /**
