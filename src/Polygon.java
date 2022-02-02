@@ -8,19 +8,20 @@
  * @version 02.02.2022
  */
 public class Polygon {
-  int numberSides = 3;
-  double[] lengthSides;
+  // instance variables (attributes)
+  private int numberSides = 3;
+  private double[] lengthSides;
 
   Polygon() {
-    lengthSides = new double[numberSides];
+    this.lengthSides = new double[numberSides];
   }
 
   /**
    * @param _numberSides number of sides of the polygon you want to create
    */
   Polygon(int ns) {
-    numberSides = ns;
-    lengthSides = new double[ns];
+    this.numberSides = ns;
+    this.lengthSides = new double[ns];
   }
 
   /**
@@ -28,8 +29,8 @@ public class Polygon {
    * @param _lengthSides the length array for all the sides of your polygon
    */
   Polygon(int ns, double[] ls) {
-    numberSides = ns;
-    lengthSides = ls;
+    this.numberSides = ns;
+    this.lengthSides = ls;
   }
 
   /**
@@ -43,13 +44,13 @@ public class Polygon {
    * @return the length array of the polygon
    */
   public double[] getLengthSides() {
-    return lengthSides;
+    return this.lengthSides;
   }
 
   /**
    * Calculates the perimeter of the polygon.
    * 
-   * @return perimeter of the polygon
+   * @return perimeter of the polygon (∑ lengthSides)
    */
   public double getPerimeter() {
     double perimeter = 0;
@@ -66,10 +67,12 @@ public class Polygon {
    */
   public String toString() {
     String result = "Sides: ";
-    for (int i = 0; i < lengthSides.length; i++) {
-      result += lengthSides[i] + " ";
+    for (int i = 0; i < this.lengthSides.length; i++) {
+      result += this.lengthSides[i] + " ";
     }
-    result += "| Perimeter: " + getPerimeter();
+    result += "| Perimeter: " + this.getPerimeter();
+
+    // return in the format "Sides: 1 1 0.34 | Perimeter: 2.34"
     return result;
   }
 }
