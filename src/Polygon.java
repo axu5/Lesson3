@@ -88,7 +88,7 @@ public class Polygon {
   /**
    * Remove a side from the polygon
    * 
-   * @param index the index of the side you want to remove
+   * @param idx the index of the side you want to remove
    */
   public void removeSide(int idx) {
     this.numberSides = Math.max(this.numberSides - 1, 3);
